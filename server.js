@@ -61,6 +61,7 @@ app.all('/proxy', async (req, res) => {
       headers,
       body:     ['GET','HEAD'].includes(req.method) ? undefined : req.body,
       redirect: 'follow',
+        follow: 20,
     });
 
     const contentType = upstream.headers.get('content-type') || '';
